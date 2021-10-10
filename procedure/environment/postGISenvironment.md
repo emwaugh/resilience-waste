@@ -1,0 +1,2 @@
+postgis_full_version
+POSTGIS="3.1.0 3.1.0" [EXTENSION] PGSQL="130" GEOS="3.9.0-CAPI-1.14.1" PROJ="7.1.1" LIBXML="2.9.9" LIBJSON="0.12" LIBPROTOBUF="1.2.1" WAGYU="0.5.0 (Internal)"
