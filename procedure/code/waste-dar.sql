@@ -40,8 +40,8 @@ SELECT wards.id, wards.ward_name, wards.totalpop, st_transform(geom, 32737)::geo
 /* st_multi() used to make geometry type match column type, which is multipolygon in this case */
 CREATE TABLE impervsurf_withward
 AS
-SELECT impervsurf2.osm_id, st_multi(st_intersection(impervsurf2.geom, wards_repro.geom))::geometry(multipolygon, 32737) AS geom, wards_repro.ward_name
-FROM impervsurf2 INNER JOIN wards_repro
+SELECT impervsurf.osm_id, st_multi(st_intersection(impervsurf.geom, wards_repro.geom))::geometry(multipolygon, 32737) AS geom, wards_repro.ward_name
+FROM impervsurf INNER JOIN wards_repro
 ON st_intersects(impervsurf2.geom, wards_repro.geom);
 
 /* aggregate (dissolve) geometries by ward, creating a multipart feature for each ward */
