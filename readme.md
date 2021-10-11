@@ -1,10 +1,12 @@
 # Title of Study
 
-> Insert names of the original authors in Kedron, P.J. format
+Pollution Pathways: Waste Sites and Impervious Surfaces in Dar es Salaam
+
+Waugh, E.
 
 ## Abstract
 
-> Briefly describe the study. If the study is a reproduction or replication, the full citation of the original study should be included here with digital object identifier (DOI) to the study and, if applicable, any preregistration, code or data repositories. Delete this instruction from the final repository.
+This study uses densities of impervious surfaces and poorly managed solid waste sites throughout the wards of Dar es Salaam, Tanzania, to obtain information on pollution pathways during flood events.
 
 ## Repository Documents
 
