@@ -1,6 +1,4 @@
-# Title of Study
-
-Pollution Pathways: Waste Sites and Impervious Surfaces in Dar es Salaam
+# Pollution Pathways: Waste Sites and Impervious Surfaces in Dar es Salaam
 
 Waugh, E.
 
@@ -12,9 +10,6 @@ This study uses densities of impervious surfaces and poorly managed solid waste 
 
 > Link your reports, manuscripts, presentations, publication DOIs, preregistrations, etc. here. Delete this instruction and unused list items from your final repository. Adjust the file names and paths and add additional items as necessary.
 
-- Preregistration: https://osf.io/my_study
-- Publication: https://doi.org/my_study
-- Pre-analysis plan: [docs/report/preanalysis.pdf](docs/report/preanalysis.pdf)
 - Study report: [docs/report/report.pdf](docs/report/report.pdf)
 - Manuscript: [docs/manuscript/manuscript.pdf](docs/manuscript/manuscript.pdf)
 - Presentation: [docs/presentation/presentation.pdf](docs/presentation/presentation.pdf)
