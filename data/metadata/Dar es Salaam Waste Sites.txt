@@ -1,3 +1,9 @@
+Data from https://geonode.resilienceacademy.ac.tz/layers/geonode_data:geonode:dar_es_salaam_trash_data, under license CC-BY 4.0 International (CC-BY 4.0).
+
+Geoservice OGC:WMS, https://geonode.resilienceacademy.ac.tz/geoserver/ows
+Geoservice OGC:WFS, https://geonode.resilienceacademy.ac.tz/geoserver/ows
+
+
 Resource metadata;
 uuid;ef2230b0-4d59-4052-bc7d-28a36336862b;
 title;Dar es Salaam Waste Sites;
