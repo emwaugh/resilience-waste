@@ -1,1 +1,3 @@
 file_path,file_name,format,sources,metadata,status,date_saved
+data/derived,wards_repro.gpkg,gpkg,,,,10-14-2021
+data/raw/public,dar_es_salaam_trash_data.zip,.zip,,,,10-10-2021
