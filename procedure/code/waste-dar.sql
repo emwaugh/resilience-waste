@@ -18,17 +18,17 @@ WHERE surface = 'paved' OR surface = 'asphalt';
 /* select all paved surfaces and buildings from OSM polygon data */
 CREATE TABLE impervpoly
 AS
-SELECT osm_id
+SELECT osm_id, way
 FROM planet_osm_polygon
-WHERE surface = 'paved' OR surface = 'asphalt' OR building = 'yes';
+WHERE surface = 'paved' OR surface = 'asphalt' OR building IS NOT NULL;
 
 /* combine roads and polygons, while also buffering roads and reprojecting both */
 /* 10m (5m buffer both directions) was determined as a reasonable size for a road based on visual inspection via satellite imagery */
 CREATE TABLE impervsurf
 AS
-SELECT osm_id, st_buffer(st_transform(way, 32737), 5)::geometry(multipolygon,32737) AS geom FROM impervroads
+SELECT osm_id, st_buffer(st_transform(way, 32737), 5)::geometry(Polygon,32737) AS geom FROM impervroads
 UNION
-SELECT osm_id, st_transform(way, 32737)::geometry(multipolygon,32737) AS geom FROM impervpoly;
+SELECT osm_id, st_transform(way, 32737)::geometry(Polygon,32737) AS geom FROM impervpoly;
 
 /* reproject wards shapefile to 32737 to make it compatible with impervsurf */
 CREATE TABLE wards_repro
@@ -42,7 +42,7 @@ CREATE TABLE impervsurf_withward
 AS
 SELECT impervsurf.osm_id, st_multi(st_intersection(impervsurf.geom, wards_repro.geom))::geometry(multipolygon, 32737) AS geom, wards_repro.ward_name
 FROM impervsurf INNER JOIN wards_repro
-ON st_intersects(impervsurf2.geom, wards_repro.geom);
+ON st_intersects(impervsurf.geom, wards_repro.geom);
 
 /* aggregate (dissolve) geometries by ward, creating a multipart feature for each ward */
 CREATE TABLE impervsurf_byward
@@ -67,12 +67,18 @@ SET impervarea = impervsurf_byward.impervarea
 FROM impervsurf_byward
 WHERE impervsurf_byward.ward_name = wards_repro.ward_name;
 
-/* calculate proportion of impervious surface area by ward */
+/* calculate proportion of impervious surface area by ward, convert to percentage */
 ALTER TABLE wards_repro
 ADD COLUMN propimperv real;
 
 UPDATE wards_repro
 SET propimperv = impervarea / st_area(geom)::real;
+
+ALTER TABLE wards_repro
+ADD COLUMN pct_imperv real;
+
+UPDATE wards_repro
+SET pct_imperv = propimperv * 100::real;
 
 /* PART (2) waste site density */
 /* select all waste sites, including name and info about cleanup method */
@@ -94,7 +100,7 @@ SELECT ward_name, st_multi(st_union(waste_withward.geom))::geometry(multipoint, 
 FROM waste_withward
 GROUP BY ward_name;
 
-/* join waste site info back to original ward geometry */
+/* join waste site info back to original ward geometry. this is essentially a join by location summarizing points within polygons */
 ALTER TABLE wards_repro
 ADD COLUMN wastecount int;
 
@@ -103,9 +109,15 @@ SET wastecount = waste_byward.count
 FROM waste_byward
 WHERE waste_byward.ward_name = wards_repro.ward_name;
 
-/* calculate waste site density by ward */
+/* calculate waste site density by ward, convert to per sqkm */
 ALTER TABLE wards_repro
 ADD COLUMN waste_density real;
 
 UPDATE wards_repro
 SET waste_density = wastecount / st_area(geom)::real;
+
+ALTER TABLE wards_repro
+ADD COLUMN waste_dens_km real;
+
+UPDATE wards_repro
+SET waste_dens_km = waste_density * 1000000::real;
