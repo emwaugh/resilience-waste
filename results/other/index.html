@@ -30,8 +30,8 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/imperv_density_4_1.js"></script>
-        <script src="data/waste_sites_2.js"></script>
+        <script src="data/Impervioussurfacecover_1.js"></script>
+        <script src="data/Poorlymanagedwastesite_2.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -59,6 +59,7 @@
             if (bounds_group.getLayers().length) {
                 map.fitBounds(bounds_group.getBounds());
             }
+            map.setMaxBounds(map.getBounds());
         }
         map.createPane('pane_OSMStandard_0');
         map.getPane('pane_OSMStandard_0').style.zIndex = 400;
@@ -73,7 +74,7 @@
         });
         layer_OSMStandard_0;
         map.addLayer(layer_OSMStandard_0);
-        function pop_imperv_density_4_1(feature, layer) {
+        function pop_Impervioussurfacecover_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -96,104 +97,104 @@
                         <td colspan="2">Total waste sites: ' + (feature.properties['wastecount'] !== null ? autolinker.link(feature.properties['wastecount'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">Waste sites per sqkm: ' + (feature.properties['wastedenskm'] !== null ? autolinker.link(feature.properties['wastedenskm'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">Waste sites per sqkm: ' + (feature.properties['wst_denskm'] !== null ? autolinker.link(feature.properties['wst_denskm'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_imperv_density_4_1_0(feature) {
-            if (feature.properties['propimperv'] >= 0.001726 && feature.properties['propimperv'] <= 0.050738 ) {
+        function style_Impervioussurfacecover_1_0(feature) {
+            if (feature.properties['propimperv'] >= 0.001729 && feature.properties['propimperv'] <= 0.095849 ) {
                 return {
-                pane: 'pane_imperv_density_4_1',
+                pane: 'pane_Impervioussurfacecover_1',
                 opacity: 1,
-                color: 'rgba(242,240,247,1.0)',
+                color: 'rgba(134,134,134,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0,
+                weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(242,240,247,0.7019607843137254)',
+                fillColor: 'rgba(252,251,253,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['propimperv'] >= 0.050738 && feature.properties['propimperv'] <= 0.065602 ) {
+            if (feature.properties['propimperv'] >= 0.095849 && feature.properties['propimperv'] <= 0.161696 ) {
                 return {
-                pane: 'pane_imperv_density_4_1',
+                pane: 'pane_Impervioussurfacecover_1',
                 opacity: 1,
-                color: 'rgba(203,201,226,1.0)',
+                color: 'rgba(134,134,134,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0,
+                weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(203,201,226,0.7019607843137254)',
+                fillColor: 'rgba(220,220,236,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['propimperv'] >= 0.065602 && feature.properties['propimperv'] <= 0.103157 ) {
+            if (feature.properties['propimperv'] >= 0.161696 && feature.properties['propimperv'] <= 0.264827 ) {
                 return {
-                pane: 'pane_imperv_density_4_1',
+                pane: 'pane_Impervioussurfacecover_1',
                 opacity: 1,
-                color: 'rgba(158,154,200,1.0)',
+                color: 'rgba(134,134,134,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0,
+                weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(158,154,200,0.7019607843137254)',
+                fillColor: 'rgba(163,160,203,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['propimperv'] >= 0.103157 && feature.properties['propimperv'] <= 0.158564 ) {
+            if (feature.properties['propimperv'] >= 0.264827 && feature.properties['propimperv'] <= 0.350801 ) {
                 return {
-                pane: 'pane_imperv_density_4_1',
+                pane: 'pane_Impervioussurfacecover_1',
                 opacity: 1,
-                color: 'rgba(158,154,200,1.0)',
+                color: 'rgba(134,134,134,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0,
+                weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(117,107,177,0.7019607843137254)',
+                fillColor: 'rgba(106,81,163,1.0)',
                 interactive: true,
             }
             }
-            if (feature.properties['propimperv'] >= 0.158564 && feature.properties['propimperv'] <= 0.361257 ) {
+            if (feature.properties['propimperv'] >= 0.350801 && feature.properties['propimperv'] <= 0.510458 ) {
                 return {
-                pane: 'pane_imperv_density_4_1',
+                pane: 'pane_Impervioussurfacecover_1',
                 opacity: 1,
-                color: 'rgba(117,107,177,1.0)',
+                color: 'rgba(134,134,134,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0,
+                weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(84,39,143,0.7019607843137254)',
+                fillColor: 'rgba(63,0,125,1.0)',
                 interactive: true,
             }
             }
         }
-        map.createPane('pane_imperv_density_4_1');
-        map.getPane('pane_imperv_density_4_1').style.zIndex = 401;
-        map.getPane('pane_imperv_density_4_1').style['mix-blend-mode'] = 'normal';
-        var layer_imperv_density_4_1 = new L.geoJson(json_imperv_density_4_1, {
+        map.createPane('pane_Impervioussurfacecover_1');
+        map.getPane('pane_Impervioussurfacecover_1').style.zIndex = 401;
+        map.getPane('pane_Impervioussurfacecover_1').style['mix-blend-mode'] = 'normal';
+        var layer_Impervioussurfacecover_1 = new L.geoJson(json_Impervioussurfacecover_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_imperv_density_4_1',
-            layerName: 'layer_imperv_density_4_1',
-            pane: 'pane_imperv_density_4_1',
-            onEachFeature: pop_imperv_density_4_1,
-            style: style_imperv_density_4_1_0,
+            dataVar: 'json_Impervioussurfacecover_1',
+            layerName: 'layer_Impervioussurfacecover_1',
+            pane: 'pane_Impervioussurfacecover_1',
+            onEachFeature: pop_Impervioussurfacecover_1,
+            style: style_Impervioussurfacecover_1_0,
         });
-        bounds_group.addLayer(layer_imperv_density_4_1);
-        map.addLayer(layer_imperv_density_4_1);
-        function pop_waste_sites_2(feature, layer) {
+        bounds_group.addLayer(layer_Impervioussurfacecover_1);
+        map.addLayer(layer_Impervioussurfacecover_1);
+        function pop_Poorlymanagedwastesite_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -204,159 +205,51 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['ward_name'] !== null ? autolinker.link(feature.properties['ward_name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['start'] !== null ? autolinker.link(feature.properties['start'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['today'] !== null ? autolinker.link(feature.properties['today'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['simserial'] !== null ? autolinker.link(feature.properties['simserial'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['subscriber'] !== null ? autolinker.link(feature.properties['subscriber'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['deviceid'] !== null ? autolinker.link(feature.properties['deviceid'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['_location_'] !== null ? autolinker.link(feature.properties['_location_'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['_locatio_1'] !== null ? autolinker.link(feature.properties['_locatio_1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['_locatio_2'] !== null ? autolinker.link(feature.properties['_locatio_2'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['_locatio_3'] !== null ? autolinker.link(feature.properties['_locatio_3'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_site'] !== null ? autolinker.link(feature.properties['waste_site'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_si_1'] !== null ? autolinker.link(feature.properties['waste_si_1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_type'] !== null ? autolinker.link(feature.properties['waste_type'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_ty_1'] !== null ? autolinker.link(feature.properties['waste_ty_1'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_ty_2'] !== null ? autolinker.link(feature.properties['waste_ty_2'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_ty_3'] !== null ? autolinker.link(feature.properties['waste_ty_3'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_ty_4'] !== null ? autolinker.link(feature.properties['waste_ty_4'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_ty_5'] !== null ? autolinker.link(feature.properties['waste_ty_5'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_ty_6'] !== null ? autolinker.link(feature.properties['waste_ty_6'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_ty_7'] !== null ? autolinker.link(feature.properties['waste_ty_7'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_ty_8'] !== null ? autolinker.link(feature.properties['waste_ty_8'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_ty_9'] !== null ? autolinker.link(feature.properties['waste_ty_9'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_ty10'] !== null ? autolinker.link(feature.properties['waste_ty10'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_ty11'] !== null ? autolinker.link(feature.properties['waste_ty11'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_ty12'] !== null ? autolinker.link(feature.properties['waste_ty12'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_ty13'] !== null ? autolinker.link(feature.properties['waste_ty13'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['waste_ty14'] !== null ? autolinker.link(feature.properties['waste_ty14'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['near_bus_s'] !== null ? autolinker.link(feature.properties['near_bus_s'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['trash_size'] !== null ? autolinker.link(feature.properties['trash_size'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['clean_up_m'] !== null ? autolinker.link(feature.properties['clean_up_m'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['access_typ'] !== null ? autolinker.link(feature.properties['access_typ'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['foot_acces'] !== null ? autolinker.link(feature.properties['foot_acces'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['trash_imag'] !== null ? autolinker.link(feature.properties['trash_imag'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['_id'] !== null ? autolinker.link(feature.properties['_id'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['_uuid'] !== null ? autolinker.link(feature.properties['_uuid'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['_submissio'] !== null ? autolinker.link(feature.properties['_submissio'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['_index'] !== null ? autolinker.link(feature.properties['_index'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['count'] !== null ? autolinker.link(feature.properties['count'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_waste_sites_2_0() {
+        function style_Poorlymanagedwastesite_2_0() {
             return {
-                pane: 'pane_waste_sites_2',
-                radius: 2.0,
+                pane: 'pane_Poorlymanagedwastesite_2',
+                radius: 2.0000000000000004,
                 opacity: 1,
-                color: 'rgba(255,122,39,1.0)',
+                color: 'rgba(236,110,0,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,149,79,1.0)',
-                interactive: false,
+                fillColor: 'rgba(255,137,1,1.0)',
+                interactive: true,
             }
         }
-        map.createPane('pane_waste_sites_2');
-        map.getPane('pane_waste_sites_2').style.zIndex = 402;
-        map.getPane('pane_waste_sites_2').style['mix-blend-mode'] = 'normal';
-        var layer_waste_sites_2 = new L.geoJson(json_waste_sites_2, {
+        map.createPane('pane_Poorlymanagedwastesite_2');
+        map.getPane('pane_Poorlymanagedwastesite_2').style.zIndex = 402;
+        map.getPane('pane_Poorlymanagedwastesite_2').style['mix-blend-mode'] = 'normal';
+        var layer_Poorlymanagedwastesite_2 = new L.geoJson(json_Poorlymanagedwastesite_2, {
             attribution: '',
-            interactive: false,
-            dataVar: 'json_waste_sites_2',
-            layerName: 'layer_waste_sites_2',
-            pane: 'pane_waste_sites_2',
-            onEachFeature: pop_waste_sites_2,
+            interactive: true,
+            dataVar: 'json_Poorlymanagedwastesite_2',
+            layerName: 'layer_Poorlymanagedwastesite_2',
+            pane: 'pane_Poorlymanagedwastesite_2',
+            onEachFeature: pop_Poorlymanagedwastesite_2,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_waste_sites_2_0(feature));
+                return L.circleMarker(latlng, style_Poorlymanagedwastesite_2_0(feature));
             },
         });
-        bounds_group.addLayer(layer_waste_sites_2);
-        map.addLayer(layer_waste_sites_2);
+        bounds_group.addLayer(layer_Poorlymanagedwastesite_2);
+        map.addLayer(layer_Poorlymanagedwastesite_2);
             var title = new L.Control();
             title.onAdd = function (map) {
                 this._div = L.DomUtil.create('div', 'info');
@@ -379,11 +272,11 @@
                 abstract.show = function () {
                     this._div.classList.remove("abstract");
                     this._div.classList.add("abstractUncollapsed");
-                    this._div.innerHTML = 'This study uses densities of impervious surfaces and poorly managed solid waste sites throughout the wards of Dar es Salaam, Tanzania, to obtain information on pollution pathways during flood events.';
+                    this._div.innerHTML = 'This study uses densities of impervious surfaces and poorly managed waste sites throughout the wards of Dar es Salaam, Tanzania, to obtain information on pollutant pathways during flood events. ';
             };
             abstract.addTo(map);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/waste_sites_2.png" /> waste_sites': layer_waste_sites_2,'imperv_density_4<br /><table><tr><td style="text-align: center;"><img src="legend/imperv_density_4_1_000200510.png" /></td><td>0.002 - 0.051 </td></tr><tr><td style="text-align: center;"><img src="legend/imperv_density_4_1_005100661.png" /></td><td>0.051 - 0.066 </td></tr><tr><td style="text-align: center;"><img src="legend/imperv_density_4_1_006601032.png" /></td><td>0.066 - 0.103 </td></tr><tr><td style="text-align: center;"><img src="legend/imperv_density_4_1_010301593.png" /></td><td>0.103 - 0.159 </td></tr><tr><td style="text-align: center;"><img src="legend/imperv_density_4_1_015903614.png" /></td><td>0.159 - 0.361 </td></tr></table>': layer_imperv_density_4_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Poorlymanagedwastesite_2.png" /> Poorly managed waste site': layer_Poorlymanagedwastesite_2,'Impervious surface cover (%)<br /><table><tr><td style="text-align: center;"><img src="legend/Impervioussurfacecover_1_090.png" /></td><td>0 - 9</td></tr><tr><td style="text-align: center;"><img src="legend/Impervioussurfacecover_1_10161.png" /></td><td>10 - 16</td></tr><tr><td style="text-align: center;"><img src="legend/Impervioussurfacecover_1_17262.png" /></td><td>17 - 26</td></tr><tr><td style="text-align: center;"><img src="legend/Impervioussurfacecover_1_27353.png" /></td><td>27 - 35</td></tr><tr><td style="text-align: center;"><img src="legend/Impervioussurfacecover_1_36514.png" /></td><td>36 - 51</td></tr></table>': layer_Impervioussurfacecover_1,"OSM Standard": layer_OSMStandard_0,}).addTo(map);
         setBounds();
         </script>
     </body>
